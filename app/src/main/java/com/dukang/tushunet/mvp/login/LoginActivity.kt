@@ -1,8 +1,11 @@
 package com.dukang.tushunet.mvp.login
 
+import android.support.design.widget.Snackbar
+import android.text.TextUtils
 import android.widget.Toast
 import com.dukang.tushunet.R
 import com.dukang.tushunet.base.BaseActivity
+import com.dukang.tushunet.mvp.login.model.LoginModel
 import com.dukang.tushunet.mvp.login.presenter.ILoginPresenter
 import com.dukang.tushunet.mvp.login.presenter.LoginPresenterCompl
 import com.dukang.tushunet.mvp.login.view.ILoginView
@@ -19,16 +22,21 @@ import kotlinx.android.synthetic.main.activity_login.*
  */
 class LoginActivity : BaseActivity(R.layout.activity_login), ILoginView {
 
-    lateinit var loginPresonel: ILoginPresenter
+    lateinit var loginPresenter: ILoginPresenter
 
     override fun initView() {
-        loginPresonel = LoginPresenterCompl(this)
+        loginPresenter = LoginPresenterCompl(this)
     }
 
     override fun initListener() {
         btn_login.setOnClickListener {
-            loginPresonel.doLogin("", "")
-
+            var userName = et_user_name.text.toString()
+            var password = et_password.text.toString()
+            if (!TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password)) {
+                loginPresenter.doLogin(userName, password)
+            } else {
+                Snackbar.make(ll_root, "请输入用户名或密码", Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -36,12 +44,9 @@ class LoginActivity : BaseActivity(R.layout.activity_login), ILoginView {
 
     }
 
-    override fun doLogin(userName: String, password: String) {
-
-    }
-
-    override fun loginResult(code: Int) {
-        Toast.makeText(this,"登录成功",Toast.LENGTH_LONG).show()
+    override fun loginResult(json: String) {
+        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show()
+        tvJson.setText(json)
     }
 
 }

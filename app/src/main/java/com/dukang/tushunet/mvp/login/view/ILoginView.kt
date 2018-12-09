@@ -9,7 +9,6 @@ package com.dukang.tushunet.mvp.login.view
  * @LastCheckedBy: wdk
  */
 open interface ILoginView {
-    fun doLogin(userName: String, password: String)
 
-    fun loginResult(code:Int)
+    fun loginResult(json:String)
 }

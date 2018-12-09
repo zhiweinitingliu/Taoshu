@@ -1,5 +1,9 @@
 package com.dukang.tushunet.mvp.login.presenter
 
+import com.dukang.tushunet.common.net.RetrofitCallBackListener
+import com.dukang.tushunet.common.utils.LogUtil
+import com.dukang.tushunet.mvp.login.model.LoginBean
+import com.dukang.tushunet.mvp.login.model.LoginModel
 import com.dukang.tushunet.mvp.login.view.ILoginView
 
 /**
@@ -12,13 +16,26 @@ import com.dukang.tushunet.mvp.login.view.ILoginView
  */
 class LoginPresenterCompl(private var iLoginView: ILoginView?) : ILoginPresenter {
 
-    var a: Int = 1
-//    fun LoginPresenterCompl(iLoginView: ILoginView) {
-//        this.iLoginView = iLoginView
-//    }
-
     override fun doLogin(userName: String, password: String) {
-        iLoginView?.loginResult(200)
+        LoginModel().login(userName, password, object : RetrofitCallBackListener<LoginBean> {
+            override fun onSuccess(json: String) {
+                LogUtil.e("loginModel:", json)
+                iLoginView?.loginResult(json)
+            }
+
+            override fun onFailed(code: Int, msg: String) {
+
+            }
+
+            override fun onFinish() {
+
+            }
+
+            override fun onThroable(t: Throwable) {
+
+            }
+
+        })
     }
 
 }
