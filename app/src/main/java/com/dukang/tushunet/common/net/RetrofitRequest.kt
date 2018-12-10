@@ -24,13 +24,13 @@ class RetrofitRequest<T>(private var call: Call<JsonObject>, private var listene
                     //网络请求成功
                     LogUtil.e("登录返回的信息:", response.body().toString())
 
-                    var jsonObject = ResponseBaseJsonIntercept.getBaseJsonBean(response.body().toString())
+                    var baseBean = ResponseBaseJsonIntercept.getBaseJsonBean(response.body().toString())
 
-                    when (jsonObject.code) {
+                    when (baseBean.code) {
                         200 -> {
                             //请求接口数据成功，并且操作成功
 
-                            listener.onSuccess(response.body().toString())
+                            listener.onSuccess(baseBean.data)
                         }
                         400 -> {
                             //请求接口数据成功，操作失败

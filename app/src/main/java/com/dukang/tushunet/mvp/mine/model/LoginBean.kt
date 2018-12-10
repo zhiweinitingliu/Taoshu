@@ -1,4 +1,4 @@
-package com.dukang.tushunet.mvp.login.model
+package com.dukang.tushunet.mvp.mine.model
 
 /**
  * @Description : 登录返回的信息
@@ -8,9 +8,9 @@ package com.dukang.tushunet.mvp.login.model
  * @LastModifyTime(最终修改时间) : 2018/12/8 15:00
  * @LastCheckBy :wdk
  */
-data class LoginBean(var code: Int,
-                     var data: String,
-                     var message: String)
+data class LoginBean(
+        var token: String
+)
 
 
 

@@ -1,14 +1,15 @@
-package com.dukang.tushunet.mvp.login
+package com.dukang.tushunet.mvp.mine.activity
 
 import android.support.design.widget.Snackbar
 import android.text.TextUtils
 import android.widget.Toast
 import com.dukang.tushunet.R
 import com.dukang.tushunet.base.BaseActivity
-import com.dukang.tushunet.mvp.login.model.LoginModel
-import com.dukang.tushunet.mvp.login.presenter.ILoginPresenter
-import com.dukang.tushunet.mvp.login.presenter.LoginPresenterCompl
-import com.dukang.tushunet.mvp.login.view.ILoginView
+import com.dukang.tushunet.common.utils.IntentManager
+import com.dukang.tushunet.common.utils.json.ToastUtil
+import com.dukang.tushunet.mvp.mine.presenter.ILoginPresenter
+import com.dukang.tushunet.mvp.mine.presenter.LoginPresenterImpl
+import com.dukang.tushunet.mvp.mine.view.ILoginView
 
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -25,7 +26,7 @@ class LoginActivity : BaseActivity(R.layout.activity_login), ILoginView {
     lateinit var loginPresenter: ILoginPresenter
 
     override fun initView() {
-        loginPresenter = LoginPresenterCompl(this)
+        loginPresenter = LoginPresenterImpl(this)
     }
 
     override fun initListener() {
@@ -44,9 +45,8 @@ class LoginActivity : BaseActivity(R.layout.activity_login), ILoginView {
 
     }
 
-    override fun loginResult(json: String) {
-        Toast.makeText(this, "登录成功", Toast.LENGTH_LONG).show()
-        tvJson.setText(json)
+    override fun loginResult() {
+        ToastUtil.toast("登录成功")
+        finish()
     }
-
 }

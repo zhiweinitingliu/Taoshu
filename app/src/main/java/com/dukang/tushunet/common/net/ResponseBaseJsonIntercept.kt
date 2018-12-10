@@ -2,8 +2,7 @@ package com.dukang.tushunet.common.net
 
 import android.text.TextUtils
 import com.dukang.tushunet.base.BaseJsonBean
-import com.dukang.tushunet.common.utils.JsonUtil
-import org.json.JSONObject
+import com.dukang.tushunet.common.utils.json.JsonUtil
 
 /**
  * @Description :对请求回来的json进行拦截处理，返回一个标准的model

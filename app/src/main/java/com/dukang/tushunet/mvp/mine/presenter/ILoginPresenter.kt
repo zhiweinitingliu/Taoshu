@@ -1,4 +1,4 @@
-package com.dukang.tushunet.mvp.login.presenter
+package com.dukang.tushunet.mvp.mine.presenter
 
 /**
  * @Description:

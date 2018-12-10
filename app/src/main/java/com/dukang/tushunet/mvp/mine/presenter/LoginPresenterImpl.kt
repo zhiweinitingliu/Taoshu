@@ -1,10 +1,11 @@
-package com.dukang.tushunet.mvp.login.presenter
+package com.dukang.tushunet.mvp.mine.presenter
 
 import com.dukang.tushunet.common.net.RetrofitCallBackListener
-import com.dukang.tushunet.common.utils.LogUtil
-import com.dukang.tushunet.mvp.login.model.LoginBean
-import com.dukang.tushunet.mvp.login.model.LoginModel
-import com.dukang.tushunet.mvp.login.view.ILoginView
+import com.dukang.tushunet.common.utils.json.JsonUtil
+import com.dukang.tushunet.common.utils.UserInfoUtil
+import com.dukang.tushunet.mvp.mine.model.LoginBean
+import com.dukang.tushunet.mvp.mine.model.LoginModel
+import com.dukang.tushunet.mvp.mine.view.ILoginView
 
 /**
  * @Description:
@@ -14,13 +15,14 @@ import com.dukang.tushunet.mvp.login.view.ILoginView
  * @LastModifyTime: 2018/11/13 14:44
  * @LastCheckedBy: wdk
  */
-class LoginPresenterCompl(private var iLoginView: ILoginView?) : ILoginPresenter {
+class LoginPresenterImpl(private var iLoginView: ILoginView?) : ILoginPresenter {
 
     override fun doLogin(userName: String, password: String) {
         LoginModel().login(userName, password, object : RetrofitCallBackListener<LoginBean> {
             override fun onSuccess(json: String) {
-                LogUtil.e("loginModel:", json)
-                iLoginView?.loginResult(json)
+                var loginBean = JsonUtil.gsonToBean<LoginBean>(json, LoginBean::class.java)
+                UserInfoUtil.saveUserToken(loginBean?.token!!)
+                iLoginView?.loginResult()
             }
 
             override fun onFailed(code: Int, msg: String) {

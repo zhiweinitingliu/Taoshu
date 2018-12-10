@@ -1,14 +1,15 @@
-package com.dukang.tushunet.mvp.home
+package com.dukang.tushunet.mvp.home.activity
 
 import android.support.v4.app.FragmentTransaction
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.dukang.tushunet.R
 import com.dukang.tushunet.base.BaseActivity
-import com.dukang.tushunet.mvp.mine.MineFragment
+import com.dukang.tushunet.mvp.mine.fragment.MineFragment
 import com.dukang.tushunet.mvp.publish.PublishFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
+import com.dukang.tushunet.mvp.home.fragment.HomeFragment
 
 /**
  * @Description:

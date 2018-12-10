@@ -39,6 +39,9 @@ dependencies {
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-//    implementation 'com.google.code.gson:gson:2.8.5'
+    //retrofit json解析
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //json解析
+    implementation 'com.alibaba:fastjson:1.2.46'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

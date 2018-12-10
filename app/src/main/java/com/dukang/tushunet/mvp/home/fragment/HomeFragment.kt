@@ -1,4 +1,4 @@
-package com.dukang.tushunet.mvp.home
+package com.dukang.tushunet.mvp.home.fragment
 
 import com.dukang.tushunet.R
 import com.dukang.tushunet.base.BaseFragment

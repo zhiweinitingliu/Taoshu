@@ -1,9 +1,8 @@
-package com.dukang.tushunet.mvp.login.model
+package com.dukang.tushunet.mvp.mine.model
 
 import com.dukang.tushunet.common.net.BuildFactory
 import com.dukang.tushunet.common.net.RetrofitCallBackListener
 import com.dukang.tushunet.common.net.RetrofitRequest
-import com.dukang.tushunet.common.utils.LogUtil
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.Field

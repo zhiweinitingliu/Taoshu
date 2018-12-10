@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".mvp.home.MainActivity"
+            android:name=".mvp.home.activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.login.LoginActivity" />
+        <activity android:name=".mvp.mine.activity.LoginActivity" />
     </application>
 
 </manifest>

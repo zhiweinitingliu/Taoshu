@@ -1,4 +1,4 @@
-package com.dukang.tushunet.mvp.login.view
+package com.dukang.tushunet.mvp.mine.view
 
 /**
  * @Description:
@@ -10,5 +10,5 @@ package com.dukang.tushunet.mvp.login.view
  */
 open interface ILoginView {
 
-    fun loginResult(json:String)
+    fun loginResult()
 }
