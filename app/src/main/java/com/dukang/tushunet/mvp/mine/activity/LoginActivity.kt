@@ -26,6 +26,7 @@ class LoginActivity : BaseActivity(R.layout.activity_login), ILoginView {
     lateinit var loginPresenter: ILoginPresenter
 
     override fun initView() {
+        setTitle("登录")
         loginPresenter = LoginPresenterImpl(this)
     }
 

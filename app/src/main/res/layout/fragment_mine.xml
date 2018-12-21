@@ -15,38 +15,19 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <ImageView
+            android:id="@+id/iv_user_head"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_customer_header" />
 
         <TextView
             android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/colorFFFFFF" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvMine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的"
-        app:layout_constraintTop_toBottomOf="@id/ll_top" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="登录"
-        app:layout_constraintTop_toBottomOf="@id/tvMine" />
-
-    <Button
-        android:id="@+id/btnMine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="我的信息"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
-
 
 </android.support.constraint.ConstraintLayout>
