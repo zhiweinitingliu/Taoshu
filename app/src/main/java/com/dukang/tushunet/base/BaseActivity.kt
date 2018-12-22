@@ -23,6 +23,7 @@ open abstract class BaseActivity(var layout_id: Int) : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
         setContentLayout()
+        initBaseControl()
         initView()
         initListener()
         initData()
@@ -31,6 +32,12 @@ open abstract class BaseActivity(var layout_id: Int) : AppCompatActivity() {
     private fun setContentLayout() {
         var view = LayoutInflater.from(this).inflate(layout_id, null, false)
         ll_root.addView(view, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+    }
+
+    fun initBaseControl() {
+        iv_back.setOnClickListener {
+            finish()
+        }
     }
 
     abstract fun initView()

@@ -4,8 +4,10 @@ import android.content.Intent
 import android.text.TextUtils
 import com.dukang.tushunet.R
 import com.dukang.tushunet.base.BaseFragment
+import com.dukang.tushunet.common.utils.IntentManager
 import com.dukang.tushunet.common.utils.UserInfoUtil
 import com.dukang.tushunet.mvp.mine.activity.LoginActivity
+import com.dukang.tushunet.mvp.mine.activity.SettingActivity
 import com.dukang.tushunet.mvp.mine.model.MineInfoBean
 import com.dukang.tushunet.mvp.mine.presenter.MineInfoPresenter
 import com.dukang.tushunet.mvp.mine.presenter.MineInfoPresenterImpl
@@ -26,8 +28,7 @@ class MineFragment : BaseFragment(), IMineView {
 
     companion object {
         fun getInstance(): MineFragment {
-            var mineFragment = MineFragment()
-            return mineFragment
+            return MineFragment()
         }
     }
 
@@ -40,6 +41,10 @@ class MineFragment : BaseFragment(), IMineView {
                 var intent = Intent(activity, LoginActivity::class.java)
                 startActivity(intent)
             }
+        }
+
+        iv_tools.setOnClickListener {
+            IntentManager.startActivity(activity, SettingActivity::class.java)
         }
     }
 

@@ -13,8 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object HttpUtil {
 
-   private val API_GANKIO = "http://192.168.10.82:8898/tushu/"
-
+//   private val API_GANKIO = "http://192.168.10.82:8898/tushu/"
+    private val API_GANKIO = "http://118.24.121.245:8080/tushu/"
 
 
     fun getBuilder(): Retrofit.Builder {

@@ -1,5 +1,6 @@
 package com.dukang.tushunet.base
 
+import android.content.Context
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
@@ -17,6 +18,8 @@ import com.classic.common.MultipleStatusView
  * @LastCheckedBy: wdk
  */
 abstract class BaseFragment : Fragment() {
+
+     lateinit var activity: BaseActivity
 
     /**
      * 视图是否加载完毕
@@ -38,8 +41,13 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        activity = context as BaseActivity
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(getLayoutId(),null)
+        return inflater.inflate(getLayoutId(), null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,7 +74,7 @@ abstract class BaseFragment : Fragment() {
      * 加载布局
      */
     @LayoutRes
-    abstract fun getLayoutId():Int
+    abstract fun getLayoutId(): Int
 
     /**
      * 初始化 ViewI
